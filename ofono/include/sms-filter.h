@@ -95,7 +95,7 @@ typedef void (*ofono_sms_filter_send_datagram_cb_t)
 				const struct ofono_sms_address *addr,
 				int dst_port, int src_port,
 				const unsigned char *buf, unsigned int len,
-				void *data);
+				int flags, void *data);
 
 typedef void (*ofono_sms_filter_recv_text_cb_t)
 			(enum ofono_sms_filter_result result,
@@ -153,6 +153,7 @@ struct ofono_sms_filter {
 				const struct ofono_sms_address *addr,
 				int dst_port, int src_port,
 				const unsigned char *buf, unsigned int len,
+				int flags,
 				ofono_sms_filter_send_datagram_cb_t cb,
 				void *data);
 	unsigned int (*filter_recv_text)(struct ofono_modem *modem,

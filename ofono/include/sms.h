@@ -27,6 +27,7 @@ extern "C" {
 #endif
 
 #include <ofono/types.h>
+#include <ofono/dbus.h>
 
 struct ofono_sms;
 
@@ -58,6 +59,10 @@ struct ofono_sms_driver {
 				ofono_sms_bearer_query_cb_t, void *data);
 	void (*bearer_set)(struct ofono_sms *sms, int bearer,
 				ofono_sms_bearer_set_cb_t, void *data);
+};
+
+enum ofono_sms_data_flag {
+	OFONO_SMS_DATA_FLAG_DELIVERY_REPORT =		0x01,
 };
 
 void ofono_sms_deliver_notify(struct ofono_sms *sms, const unsigned char *pdu,
