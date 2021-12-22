@@ -326,6 +326,11 @@ if (test "${enable_sailfish_debuglog}" = "yes"); then
 	LIBS="$LIBS $DBUSLOG_LIBS"
 fi
 
+AC_ARG_ENABLE(aml_messaging, AC_HELP_STRING([--enable-aml-messaging],
+				[enable support for AML messaging]),
+					[enable_aml_messaging=${enableval}])
+AM_CONDITIONAL(AML_MESSAGING, test "${enable_aml_messaging}" != "no")
+
 if (test "${prefix}" = "NONE"); then
 	dnl no prefix and no localstatedir, so default to /var
 	if (test "$localstatedir" = '${prefix}/var'); then

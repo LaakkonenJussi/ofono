@@ -693,6 +693,11 @@ builtin_sources += plugins/mbim.c
 endif
 endif
 
+if AML_MESSAGING
+builtin_modules += aml_messaging
+builtin_sources += plugins/aml_messaging.c
+endif
+
 sbin_PROGRAMS = src/ofonod
 
 src_ofonod_SOURCES = $(builtin_sources) $(gatchat_sources) src/ofono.ver \
