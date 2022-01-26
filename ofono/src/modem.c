@@ -215,6 +215,14 @@ struct ofono_radio_settings *ofono_modem_get_radio_settings
 	return __ofono_atom_find(OFONO_ATOM_TYPE_RADIO_SETTINGS, modem);
 }
 
+unsigned int ofono_modem_get_next_call_id(struct ofono_modem *modem)
+{
+	if (!modem)
+		return 0;
+
+	return __ofono_modem_callid_next(modem);
+}
+
 struct ofono_atom *__ofono_modem_add_atom(struct ofono_modem *modem,
 					enum ofono_atom_type type,
 					void (*destruct)(struct ofono_atom *),

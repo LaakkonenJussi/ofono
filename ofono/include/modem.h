@@ -142,6 +142,9 @@ ofono_bool_t ofono_modem_remove_watch(unsigned int id);
 void ofono_modem_set_powered_timeout_hint(struct ofono_modem *modem,
 							unsigned int seconds);
 
+/* Since mer/1.28+git3 */
+unsigned int ofono_modem_get_next_call_id(struct ofono_modem *modem);
+
 #ifdef __cplusplus
 }
 #endif
