@@ -665,8 +665,11 @@ void __ofono_voicecall_filter_chain_incoming(struct voicecall_filter_chain *c,
 #include <ofono/dbus-access.h>
 #include <ofono/slot.h>
 
+struct ofono_slot_manager_object;
+
 void __ofono_slot_manager_init(void);
 void __ofono_slot_manager_cleanup(void);
+struct ofono_slot_manager_object *__ofono_slot_manager_get(void);
 
 #include <ofono/cell-info.h>
 #include <ofono/sim-mnclength.h>

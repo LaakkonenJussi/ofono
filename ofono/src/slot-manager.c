@@ -1340,6 +1340,20 @@ void ofono_slot_drop_cell_info_requests(struct ofono_slot *s, void* tag)
 	}
 }
 
+struct ofono_slot *ofono_slot_find_imsi(const char *imsi)
+{	/* Since mer/1.28+git3 */
+	OfonoSlotManagerObject *mgr = __ofono_slot_manager_get();
+	OfonoSlotObject *obj;
+
+	if (mgr && imsi) {
+		obj = slot_manager_find_slot_imsi(mgr, imsi);
+		if (obj)
+			return &obj->pub;
+	}
+
+	return NULL;
+}
+
 unsigned long ofono_slot_add_property_handler(struct ofono_slot *s,
 	enum ofono_slot_property p, ofono_slot_property_cb cb, void* data)
 {
@@ -1505,6 +1519,11 @@ void __ofono_slot_manager_cleanup(void)
 		g_slist_free_full(drivers,(GDestroyNotify)slot_driver_reg_free);
 		g_object_unref(mgr);
 	}
+}
+
+OfonoSlotManagerObject *__ofono_slot_manager_get(void)
+{
+	return slot_manager;
 }
 
 /*==========================================================================*

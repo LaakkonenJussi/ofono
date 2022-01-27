@@ -161,6 +161,9 @@ void ofono_slot_set_cell_info_update_interval(struct ofono_slot *s, void* tag,
 	int interval_ms);
 void ofono_slot_drop_cell_info_requests(struct ofono_slot *s, void* tag);
 
+/* Since mer/1.28+git3 */
+struct ofono_slot *ofono_slot_find_imsi(const char *imsi);
+
 #ifdef __cplusplus
 }
 #endif
